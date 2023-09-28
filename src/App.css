@@ -1,0 +1,41 @@
+.App{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.add-task-main-div{
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  border: 1px solid green;
+  border-radius: 30px;
+  padding: 20px;
+}
+
+.task-form{
+  display: flex;
+    flex-direction: column;
+}
+
+.task-list{
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+}
+
+.task-show{
+  border: 1px solid green;
+    width: 300px;
+    margin: 20px 10px;
+    border-radius: 30px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.create-btn-group{
+  margin-top: 20px;
+}
+
