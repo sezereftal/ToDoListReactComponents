@@ -9,17 +9,25 @@ function App() {
     const createdTask = [
       ...tasks,
       {
-        id: Math.round(Math.random * 999999),
+        id: Math.round(Math.random() * 999999),
         title,
         addTask,
       },
     ];
     setTasks(createdTask);
   };
+
+  const handleOnDelete = (id) => {
+    const afterDeletingTask = tasks.filter((task) => {
+      return task.id !== id;
+    });
+    setTasks(afterDeletingTask);
+  };
+
   return (
     <div className="App">
       <TaskCreate onCreate={createTask} />
-      <TaskList tasks={tasks} />
+      <TaskList tasks={tasks} deleteBtnClick={handleOnDelete} />
     </div>
   );
 }
