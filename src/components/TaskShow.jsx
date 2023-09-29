@@ -3,13 +3,15 @@ import Button from "@mui/material/Button";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import TaskCreate from "./TaskCreate";
+import { useContext } from "react";
+import TaskContext from "../context/task-context";
 
-function TaskShow({ task, deleteBtnClick, onUpdate }) {
+function TaskShow({ task }) {
+  const { handleOnDelete, editTaskById } = useContext(TaskContext);
   const [showEdit, setShowEdit] = useState(false);
 
   const handleDeleteBtn = () => {
-    console.log(task.id);
-    deleteBtnClick(task.id);
+    handleOnDelete(task.id);
   };
 
   const handleEditBtn = () => {
@@ -18,7 +20,7 @@ function TaskShow({ task, deleteBtnClick, onUpdate }) {
 
   const handleEditSubmit = (id, updatedTitle, updatedAddTask) => {
     setShowEdit(false);
-    onUpdate(id, updatedTitle, updatedAddTask);
+    editTaskById(id, updatedTitle, updatedAddTask);
   };
   return (
     <div className="task-show">

@@ -5,8 +5,11 @@ import Button from "@mui/material/Button";
 import SendIcon from "@mui/icons-material/Send";
 import EditIcon from "@mui/icons-material/Edit";
 import { useState } from "react";
+import { useContext } from "react";
+import TaskContext from "../context/task-context";
 
-function TaskCreate({ onCreate, taskFormUpdate, task, onUpdate }) {
+function TaskCreate({ taskFormUpdate, task, onUpdate }) {
+  const { createTask } = useContext(TaskContext);
   const [title, setTitle] = useState(task ? task.title : "");
   const [addTask, setAddTask] = useState(task ? task.addTask : "");
 
@@ -23,7 +26,7 @@ function TaskCreate({ onCreate, taskFormUpdate, task, onUpdate }) {
     if (taskFormUpdate) {
       onUpdate(task.id, title, addTask);
     } else {
-      onCreate(title, addTask);
+      createTask(title, addTask);
     }
     setTitle("");
     setAddTask("");
